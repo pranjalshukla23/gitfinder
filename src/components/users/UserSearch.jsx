@@ -21,6 +21,8 @@ function UserSearch(){
       setAlert("please enter something",'error')
     }else{
 
+      console.log("text", text)
+
       const users = await searchUsers(text)
 
       //modify state based on action

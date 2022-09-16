@@ -14,13 +14,20 @@ const github = axios.create({
 //get search results
 export const searchUsers = async(text) =>{
 
-  const params = new URLSearchParams({
-    q: text
-  })
+  try{
+    const params = new URLSearchParams({
+      q: text
+    })
 
-  const response = await github.get(`/search/users?${params}`)
+    const response = await github.get(`/search/users?${params}`)
 
-  return response.data.items
+    console.log(response)
+
+    return response.data.items
+  }catch(err){
+    console.log(err)
+  }
+
 }
 
 //get user and repos
